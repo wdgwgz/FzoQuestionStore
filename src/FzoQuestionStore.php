@@ -28,14 +28,14 @@ class FzoQuestionStore {
      */
     function getAll( $category_name = '', $limit = 50 ){
 
-        $_m = FzoQuestionStoreModel::select(['title', 'content', 'category'])->orderBy('sort', 'desc');
+        $_m = FzoQuestionStoreModel::select(['question', 'answer', 'category'])->orderBy('sort', 'desc');
 
         if ( $category_name ) {
             $_m->where('category_name', $category_name );
         }
 
         $result = $_m->limit( $limit )->get();
-        
+
         return count( $result ) > 0 ? $result->toArray() : [];
     }
 

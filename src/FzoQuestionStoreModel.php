@@ -11,6 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class FzoQuestionStoreModel extends Model {
 
-    protected $fillable = ['title,content,category,sort'];
+    protected $fillable = ['question, answer,category,sort'];
     protected $table = 'question_store';
 }
