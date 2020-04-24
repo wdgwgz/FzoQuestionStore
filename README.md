@@ -1,27 +1,27 @@
 
-## 基于 阿里云短信 验证的 业务类
+## 简单版本 问题内容库
 
 
 ## 安装
 
 安装扩展
 ```
-composer require gemor/fzo
+composer require gemor/fzo-question-store
 ```
 
 
-数据库创建(手动创建一下吧)
+数据库创建
 ```
 CREATE TABLE `question_store` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
   `category` varchar(191) DEFAULT NULL COMMENT '栏目名称',
-  `title` varchar(191) DEFAULT NULL COMMENT '标题',
-  `content` text COMMENT '内容',
+  `question` varchar(191) DEFAULT NULL COMMENT '标题',
+  `answer` text COMMENT '内容',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 ```
 
 
@@ -29,17 +29,20 @@ CREATE TABLE `question_store` (
 
 ```
 /**
- * 发送短信
- * $phone 手机号
+ *
+ * 获取所有 问题
+ * @param string $cate 栏目名称
+ * @param number $limit 返回的条数
  */
-(new \Fzo\VerifyCode())->send($phone)
+(new \FzoQuestionStore\FzoQuestionStore)->getAll( $cate = '', $limit = 50);
 
 /**
- * 验证短信
- * $phone 手机号
- * $code 短信验证码
+ *
+ * 获取 所有栏目
+ *
  */
-(new \Fzo\VerifyCode())->verify($phone, $code)
+(new \FzoQuestionStore\FzoQuestionStore())->getAllCate();
+
 
 ```
 
