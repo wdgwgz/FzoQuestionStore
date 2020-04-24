@@ -1,16 +1,18 @@
 
-## 简单版本 问题内容库
+## 简单版本 问题内容库 
+```
+注意：测试关联扩展，生成环境不要使用
+```
 
 
 ## 安装
 
-安装扩展
 ```
 composer require gemor/fzo-question-store
 ```
 
 
-数据库创建
+## 数据库创建
 ```
 CREATE TABLE `question_store` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
@@ -25,7 +27,7 @@ CREATE TABLE `question_store` (
 ```
 
 
-### 用法
+## 用法
 
 ```
 /**
