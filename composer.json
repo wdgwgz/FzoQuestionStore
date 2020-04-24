@@ -1,0 +1,22 @@
+{
+    "name": "gemor/fzo-question-store",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "require": {
+        "php": ">5.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FzoQuestionStore\\ServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "FzoQuestionStore\\": "src/"
+        }
+    }
+}
